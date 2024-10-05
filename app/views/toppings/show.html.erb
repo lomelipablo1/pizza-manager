@@ -1,0 +1,11 @@
+<h1><%= @topping.name %></h1>
+
+<ul>
+  <li><%= link_to "Edit", edit_topping_path(@topping) %></li>
+  <li><%= link_to "Destroy", topping_path(@topping), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %></li>
+</ul>
+
+<%= link_to "Return to Toppings", "/toppings" %>

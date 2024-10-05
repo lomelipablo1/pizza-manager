@@ -1,6 +1,24 @@
 Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
+  root "manager#index"
+
+  get "/manager", to: "manager#index"
+
+  resources :toppings do
+    resources :pizzatoppings
+  end
+
+  resources :pizzas do
+    resources :pizzatoppings
+  end
+
+  get "/toppings", to: "toppings#index"
+  get "/toppings/:id", to: "toppings#show"
+
+  get "/pizzas", to: "pizzas#index"
+  get "/pizzas/:id", to: "pizzas#show"
+
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   # Can be used by load balancers and uptime monitors to verify that the app is live.
   get "up" => "rails/health#show", as: :rails_health_check

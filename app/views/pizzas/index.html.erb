@@ -1,0 +1,14 @@
+<h1>Pizzas</h1>
+
+<ul>
+  <% @pizzas.each do |pizza| %>
+    <li>
+      <%= link_to pizza.name, pizza %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to "New Pizzas", new_pizza_path %>
+<br>
+<br>
+<%= link_to "Return to Manager Page", manager_path %>

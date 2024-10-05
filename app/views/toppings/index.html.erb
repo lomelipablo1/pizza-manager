@@ -1,0 +1,14 @@
+<h1>Toppings</h1>
+
+<ul>
+  <% @toppings.each do |topping| %>
+    <li>
+      <%= link_to topping.name, topping %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to "New Topping", new_topping_path %>
+<br>
+<br>
+<%= link_to "Return to Manager Page", manager_path %>

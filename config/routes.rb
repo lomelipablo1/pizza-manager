@@ -5,13 +5,13 @@ Rails.application.routes.draw do
 
   get "/manager", to: "manager#index"
 
-  resources :toppings do
-    resources :pizzatoppings
-  end
+  resources :toppings
 
   resources :pizzas do
     resources :pizzatoppings
   end
+
+  resources :pizzatoppings
 
   get "/toppings", to: "toppings#index"
   get "/toppings/:id", to: "toppings#show"

@@ -8,22 +8,26 @@
                   } %></li>
 </ul>
 
-<h2>Toppings:</h2>
+<h2>Current Toppings:</h2>
 <% @pizza.pizzatoppings.each do |pizzatopping| %>
   <p>
-    <%= pizzatopping.topping.name %>
+    <%= pizzatopping.topping.name %> 
+    <%= link_to "Remove", pizzatopping_path(pizzatopping), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %>
   </p>
 <% end %>
 
 <br>
 
-<h2>Add a topping:</h2>
+<h2>Add Toppings:</h2>
 <%= form_with model: [ @pizza, @pizza.pizzatoppings.build ] do |form| %>
   <div>
     <%= form.collection_select :topping_id, Topping.all, :id, :name, {multiple: false, id: '', class: ""} %>
   </div>
   <p>
-    <%= form.submit %>
+    <%= form.submit "Add" %>
   </p>
 <% end %>
 <br>

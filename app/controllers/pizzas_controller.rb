@@ -39,7 +39,7 @@ class PizzasController < ApplicationController
     @pizza = Pizza.find(params[:id])
     @pizza.destroy
 
-    redirect_to root_path, status: :see_other
+    redirect_to pizzas_path, status: :see_other
   end
 
   private

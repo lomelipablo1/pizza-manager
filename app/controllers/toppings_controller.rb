@@ -39,7 +39,7 @@ class ToppingsController < ApplicationController
     @topping = Topping.find(params[:id])
     @topping.destroy
 
-    redirect_to root_path, status: :see_other
+    redirect_to toppings_path, status: :see_other
   end
 
   private

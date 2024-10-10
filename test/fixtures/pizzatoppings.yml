@@ -5,5 +5,9 @@ one:
   topping: one
 
 two:
+  pizza: one
+  topping: two
+
+three:
   pizza: two
   topping: two
